@@ -66,7 +66,4 @@ One issue was handling empty input and extra whitespace when counting words. Ano
 **Shout-out to my classmates**:  
 everyone in **2025-RTT-57** - thank you for the help, laughs, and caffeine-powered group chats.
 
-I really appreciate this community. Even when I was stuck debugging TypeScript errors and thinking my app was broken forever, someone always kept me motivated.  
-
-
 

@@ -22,17 +22,16 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
   const { characterCount, wordCount, readingTime } = stats;
 
   return (
-    <div className="mt-4 space-y-1">
+ <div className="stats-wrapper">
       <p>
-        <span className="font-semibold">Characters:</span> {characterCount}
+        <div className="stat-card">Characters: {characterCount}</div>
       </p>
       <p>
-        <span className="font-semibold">Words:</span> {wordCount}
+        <div className="stat-card">Words: {wordCount}</div>
       </p>
       {showReadingTime && (
         <p>
-          <span className="font-semibold">Reading time:</span>{" "}
-          {readingTime.toFixed(1)} min
+          <div className="stat-card">Reading time: {readingTime.toFixed(1)} min</div>
         </p>
       )}
     </div>

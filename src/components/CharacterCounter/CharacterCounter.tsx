@@ -39,7 +39,7 @@ export const CharacterCounter: React.FC<CharacterCounterProps> = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-4 space-y-4">
+     <div className="counter-container">
 
       <h1 className="text-2xl font-bold">Character Counter</h1>
 

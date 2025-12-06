@@ -14,9 +14,9 @@ export const TextInput: React.FC<TextInputProps> = ({
   initialValue = "",
 }) => {
   return (
-    <div className="w-full">
+    <div className="text-input-container">
       <textarea
-        className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="text-input-area"
         placeholder={placeholder}
         defaultValue={initialValue}
         onChange={(e) => onTextChange(e.target.value)}

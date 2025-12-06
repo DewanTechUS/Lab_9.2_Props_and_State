@@ -1,12 +1,40 @@
 // https://ps-lms.vercel.app/curriculum/se/415/lab-2#:~:text=%7D-,2.%20StatsDisplay%20Component,-Create%20a%20StatsDisplay
 // types/index.ts
-export interface TextStats {
-  characterCount: number;
-  wordCount: number;
-  readingTime: number; // in minutes
-}
+// export interface TextStats {
+//   characterCount: number;
+//   wordCount: number;
+//   readingTime: number; // in minutes
+// }
  
-export interface StatsDisplayProps {
-  stats: TextStats;
-  showReadingTime?: boolean;
-}
+// export interface StatsDisplayProps {
+//   stats: TextStats;
+//   showReadingTime?: boolean;
+// }
+// https://stackoverflow.com/questions/76983697/why-does-my-vue-vite-typescript-application-require-me-to-separate-import-and
+// follow this you will be fine with the imports
+import React from "react";
+import { StatsDisplayProps } from "../../types";
+
+export const StatsDisplay: React.FC<StatsDisplayProps> = ({
+  stats,
+  showReadingTime = true,
+}) => {
+  const { characterCount, wordCount, readingTime } = stats;
+
+  return (
+    <div className="mt-4 space-y-1">
+      <p>
+        <span className="font-semibold">Characters:</span> {characterCount}
+      </p>
+      <p>
+        <span className="font-semibold">Words:</span> {wordCount}
+      </p>
+      {showReadingTime && (
+        <p>
+          <span className="font-semibold">Reading time:</span>{" "}
+          {readingTime.toFixed(1)} min
+        </p>
+      )}
+    </div>
+  );
+};

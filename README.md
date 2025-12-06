@@ -1,73 +1,72 @@
-# React + TypeScript + Vite
+# Lab 2 - Character Counter State & Events
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Author
+**Dewan Farhad Mahmud (Rocky)**  
+- Per Scholas Software Engineering, Cohort RTT-57  
+- GitHub: https://github.com/DewanTechUS  
+- Portfolio: https://dewantech.com  
+- Email: rockyit10@gmail.com
 
-Currently, two official plugins are available:
+I’m passionate about building clean, responsive user interfaces and learning modern JavaScript, TypeScript, and React. Still learning every day, debugging every night.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is my implementation of Lab 2 from the Per Scholas Software Engineering curriculum. It is a character counter built with React + TypeScript using Vite, and it updates statistics in real-time as you type.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Live character and word count  
+- Estimated reading time  
+- Word goal progress (min / max words)  
+- Callback communication between components  
+- All components strongly typed with TypeScript interfaces  
 
-## Expanding the ESLint configuration
+## How It Works
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `useState` stores the text and statistics in `CharacterCounter`
+- `TextInput` sends text changes to the parent using a callback
+- `calculateStats()` updates characters, words, and reading time instantly
+- `StatsDisplay` shows the current stats on screen
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## How to Run the Project
+1.	Open Terminal or git bash - Press CTRL + ` (backtick) in VS Code to open the integrated terminal.
+2.	Install dependencies - Make sure you are inside your project folder (example: character-counter), then run:
+3.	npm install - This installs everything from your package.json (React, TypeScript, Vite, etc.).
+4.	Start development server
+5.	npm run dev
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+You should see something like:
+VITE v5.x.x  ready in 400ms
+ Local: http://localhost:5173/
+6.	Open the browser
+Go to:
+7.	http://localhost:5173/
+Your Character Counter app will be running and updating in real-time.
+8.	Stop the server
+To stop the development server at any time, press:
+CTRL + C
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Reflection
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**How did you handle state updates when the text changed?**  
+I kept all state in `CharacterCounter` and used a callback (`onTextChange`) to update the text and stats each time the user types.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**What considerations did you make when calculating reading time?**  
+I used a estimate of 30 words per minute. If the text is empty, the reading time returns 0 so the UI never breaks.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**How did you ensure the UI remained responsive?**  
+The calculations are lightweight (only counting characters, splitting words, and a basic division), so React can update smoothly even during fast typing.
+
+**What challenges did you face?**  
+One issue was handling empty input and extra whitespace when counting words. Another struggle was fixing TypeScript configuration errors (`tsconfig`). I researched errors on StackOverflow and found solutions that helped TypeScript recognize React types correctly. After that, the build finally stopped yelling at me. 
+
+## Special Thanks
+
+**Huge thank you to our instructor**:  
+*My Teachers Tishana Trainor and Bryan Santos* - for breaking down React and TypeScript in a way that finally made sense.
+
+**Shout-out to my classmates**:  
+everyone in **2025-RTT-57** - thank you for the help, laughs, and caffeine-powered group chats.
+
+I really appreciate this community. Even when I was stuck debugging TypeScript errors and thinking my app was broken forever, someone always kept me motivated.  
+
+
+

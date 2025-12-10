@@ -1,4 +1,4 @@
-# Lab 2 - Character Counter State & Events
+# Lab 9.2 - Props and State
 
 ## Author
 **Dewan Farhad Mahmud (Rocky)**  
